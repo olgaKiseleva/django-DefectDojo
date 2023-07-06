@@ -1,7 +1,17 @@
 {
   "result": "OK",
   "data": {
-    "report": [],
+    "report": [      
+      {
+        "agentip": "31363a6a506d67494e4c4a6f657048445470482b697a6651773d3d",
+        "agentfqdn": "36343a77484b7539507276666465714d56432f33675659506b4630444d395064545168364b495167547951485744455454496e417a3141346c5a715639616d4531392b6b45632b7370727872666a65575148454f38795975413d3d",
+        "osname": "ubuntu",
+        "osversion": "20.04",
+        "cumulativeFix": "",
+        "vulnerabilities": [],
+        "published": "2023-02-16T18:16:12"
+      }
+    ],
     "vulns": {}
   },
   "indexName": "es6_scanner_35ee2944abab0b2c4f6e63916fc96bec0b1642ce_scanresults",

@@ -3,15 +3,19 @@
   "data": {
     "report": [
       {
-        "vulnID": "RHSA-2018:2285",
-        "title": "(RHSA-2018:2285) Important: yum-utils security update",
-        "family": "redhat",
-        "severity": 5,
-        "severityText": "critical",
-        "agentip": "12.34.56.78",
-        "agentfqdn": "localhost",
-        "cumulativeFix": "sudo yum -y update yum-utils",
-        "scanid": "BO1T5ZYXH9SFTOJ189NE1XJDNEH7IX9W4OWMTZNDAH9AECACJCXPN330NGBBOH8YBI3YYY25QJ11L89LTMAHHBMNLNRQQO001F2DWJFIDDXZ7D9UTCLVBUZPWCXEDZY"
+        "agentip": "188.32.116.79",
+        "agentfqdn": "broadband-188-32-116-79.ip.moscow.rt.ru",
+        "osname": "debian",
+        "osversion": "10",
+        "cumulativeFix": "sudo apt-get --assume-yes install --only-upgrade bind9-host",
+        "vulnerabilities": [
+          "DEBIAN:DSA-5105-1:A867B",
+          "DEBIAN:DSA-5235-1:A2B24",
+          "DEBIAN:DLA-2955-1:40374",
+          "DEBIAN:DLA-3138-1:2F5A9",
+          "DEBIAN:DLA-2955-2:CDB18"
+        ],
+        "published": "2023-02-23T10:55:41"
       }
     ],
     "vulns": {},
