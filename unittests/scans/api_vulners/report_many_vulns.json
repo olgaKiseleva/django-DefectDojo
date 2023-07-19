@@ -3,153 +3,433 @@
   "data": {
     "report": [
       {
-        "vulnID": "RHSA-2018:2285",
-        "title": "(RHSA-2018:2285) Important: yum-utils security update",
-        "family": "redhat",
-        "severity": 5,
-        "severityText": "critical",
-        "agentip": "12.34.56.78",
-        "agentfqdn": "localhost",
-        "cumulativeFix": "sudo yum -y update yum-utils",
-        "scanid": "BO1T5ZYXH9SFTOJ189NE1XJDNEH7IX9W4OWMTZNDAH9AECACJCXPN330NGBBOH8YBI3YYY25QJ11L89LTMAHHBMNLNRQQO001F2DWJFIDDXZ7D9UTCLVBUZPWCXEDZY"
+        "agentip": "31363a6a506d67494e4c4a6f657048445470482b697a6651773d3d",
+        "agentfqdn": "36343a77484b7539507276666465714d56432f33675659506b4630444d395064545168364b495167547951485744455454496e417a3141346c5a715639616d4531392b6b45632b7370727872666a65575148454f38795975413d3d",
+        "osname": "ubuntu",
+        "osversion": "20.04",
+        "cumulativeFix": "",
+        "vulnerabilities": [],
+        "published": "2023-02-16T18:16:12"
       },
       {
-        "vulnID": "CESA-2018:3092",
-        "title": "glibc, nscd security update",
-        "family": "centos",
-        "severity": 5,
-        "severityText": "critical",
-        "agentip": "123.234.123.123",
-        "agentfqdn": "unknown",
-        "cumulativeFix": "sudo yum -y update glibc-common",
-        "scanid": "WKGG4MDAWAOYI3RH5X9W4OWMTZNDAH9AECACJCX6GPZBVCELGM0YU06IT3E9K89NE1XJDNEH7IX9W4OWMTPXWQROA0IASZK4SEL3UXVC5YO12VI8RB84WZDX8MYIT0P5"
+        "agentip": "127.0.0.4",
+        "agentfqdn": "home",
+        "osname": "debian",
+        "osversion": "10",
+        "cumulativeFix": "sudo apt-get --assume-yes install --only-upgrade bind9-host",
+        "vulnerabilities": [
+          "DEBIAN:DSA-5105-1:A867B",
+          "DEBIAN:DSA-5235-1:A2B24",
+          "DEBIAN:DLA-2955-1:40374",
+          "DEBIAN:DLA-3138-1:2F5A9",
+          "DEBIAN:DLA-2955-2:CDB18"
+        ],
+        "published": "2023-02-23T10:55:41"
       },
       {
-        "vulnID": "CESA-2021:0348",
-        "title": "glibc, nscd security update",
-        "family": "centos",
-        "severity": 4,
-        "severityText": "high",
-        "agentip": "223.234.234.123",
+        "agentip": "169.254.33.192",
+        "agentfqdn": "homedesktop",
+        "osname": "windows",
+        "osversion": "10.0.19045",
+        "cumulativeFix": "",
+        "vulnerabilities": [
+          "CVE-2022-32774",
+          "OSV:CVE-2021-20227",
+          "CVE-2022-37332",
+          "CVE-2019-16168",
+          "CVE-2022-42919",
+          "CVE-2016-6153",
+          "CVE-2019-8457",
+          "CVE-2022-35737",
+          "CVE-2022-40129",
+          "CVE-2022-38097"
+        ],
+        "published": "2022-12-30T13:08:59"
+      },
+      {
+        "agentip": "169.254.33.192",
+        "agentfqdn": "my.host.example.com",
+        "osname": "windows",
+        "osversion": "10.0.19045",
+        "cumulativeFix": "",
+        "vulnerabilities": [
+          "CVE-2022-32774",
+          "OSV:CVE-2021-20227",
+          "CVE-2022-37332",
+          "CVE-2019-16168",
+          "CVE-2016-6153",
+          "CVE-2019-8457",
+          "CVE-2022-35737",
+          "CVE-2022-40129",
+          "CVE-2022-38097",
+          "GCSA-7983606563710745028"
+        ],
+        "published": "2023-02-08T13:58:13"
+      },
+      {
+        "agentip": "127.0.0.4",
         "agentfqdn": "unknown",
-        "cumulativeFix": "sudo yum -y update glibc-common",
-        "scanid": "WKGG4MDAWAOYI3RH5X9W4OWMTZNDAH9AECACJCX6GPZBVCELGM0YU06IT3E9K89NE1XJDNEH7IX9W4OWMTPXWQROA0IASZK4SEL3UXVC5YO12VI8RB84WZDX8MYIT0P5"
+        "osname": "Windows",
+        "osversion": "10.0.19045",
+        "cumulativeFix": "",
+        "vulnerabilities": [],
+        "published": "2023-02-13T17:42:23"
       }
     ],
     "vulns": {
-      "CESA-2018:3092": {
-        "id": "CESA-2018:3092",
-        "type": "centos",
-        "description": "**CentOS Errata and Security Advisory**",
-        "cvss3": {
-          "cvssV3": {
-            "attackComplexity": "LOW",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 9.8,
-            "baseSeverity": "CRITICAL",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "privilegesRequired": "NONE",
-            "scope": "UNCHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "version": "3.0"
-          },
-          "exploitabilityScore": 3.9,
-          "impactScore": 5.9
+      "CVE-2016-6153": {
+        "id": "CVE-2016-6153",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2016-6153",
+        "description": "os_unix.c in SQLite before 3.13.0 improperly implements the temporary directory search algorithm, which might allow local users to obtain sensitive information, cause a denial of service (application crash), or have unspecified other impact by leveraging use of the current working directory for temporary files.",
+        "published": "2016-09-26T16:59:00",
+        "modified": "2018-10-30T16:27:00",
+        "cvss": {
+          "score": 4.6,
+          "vector": "AV:L/AC:L/Au:N/C:P/I:P/A:P"
         },
-        "references": [
-          "https://www.linkedin.com/groups/22405",
-          "https://www.facebook.com/groups/centosproject/",
-          "https://www.reddit.com/r/CentOS/",
-          "https://access.redhat.com/errata/RHSA-2018:3092",
-          "http://steadfast.net/",
-          "https://youtube.com/TheCentOSProject",
-          "https://twitter.com/centos"
-        ],
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-6153",
         "cvelist": [
-          "CVE-2017-16997",
-          "CVE-2018-11236",
-          "CVE-2018-11237",
-          "CVE-2018-6485"
+          "CVE-2016-6153"
         ],
+        "lastseen": "2023-02-09T14:15:26",
         "enchantments": {
           "vulnersScore": "PENDING"
         }
       },
-      "CESA-2021:0348": {
-        "id": "CESA-2021:0348",
-        "type": "centos",
-        "description": "**CentOS Errata and Security Advisory** CESA-2021:0348",
-        "cvss3": {
-          "cvssV3": {
-            "attackComplexity": "LOW",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 7.5,
-            "baseSeverity": "HIGH",
-            "confidentialityImpact": "NONE",
-            "integrityImpact": "NONE",
-            "privilegesRequired": "NONE",
-            "scope": "UNCHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-            "version": "3.1"
-          },
-          "exploitabilityScore": 3.9,
-          "impactScore": 3.6
+      "CVE-2019-16168": {
+        "id": "CVE-2019-16168",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2019-16168",
+        "description": "In SQLite through 3.29.0, whereLoopAddBtreeIndex in sqlite3.c can crash a browser or other application because of missing validation of a sqlite_stat1 sz field, aka a \"severe division by zero in the query planner.\"",
+        "published": "2019-09-09T17:15:00",
+        "modified": "2021-07-31T08:15:00",
+        "cvss": {
+          "score": 4.3,
+          "vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P"
         },
-        "references": [
-          "https://twitter.com/centos",
-          "https://access.redhat.com/errata/RHSA-2021:0348",
-          "http://steadfast.net/",
-          "https://www.linkedin.com/groups/22405",
-          "https://youtube.com/TheCentOSProject",
-          "https://www.facebook.com/groups/centosproject/",
-          "https://www.reddit.com/r/CentOS/"
-        ],
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2019-16168",
         "cvelist": [
-          "CVE-2019-25013",
-          "CVE-2020-10029",
-          "CVE-2020-29573"
+          "CVE-2019-16168"
         ],
+        "lastseen": "2023-02-09T14:37:18",
         "enchantments": {
           "vulnersScore": "PENDING"
         }
       },
-      "RHSA-2018:2285": {
-        "id": "RHSA-2018:2285",
-        "type": "redhat",
-        "description": "The yum-utils packages provide a collection of utilities and examples for the yum package manager to make yum easier and more powerful to use.\n\nSecurity Fix(es):\n\n* yum-utils: reposync: improper path validation may lead to directory traversal (CVE-2018-10897)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nRed Hat would like to thank Jay Grizzard (Clover Network) and Aaron Levy (Clover Network) for reporting this issue.",
-        "cvss3": {
-          "cvssV3": {
-            "attackComplexity": "HIGH",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 8.1,
-            "baseSeverity": "HIGH",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "privilegesRequired": "NONE",
-            "scope": "UNCHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "version": "3.1"
-          },
-          "exploitabilityScore": 2.2,
-          "impactScore": 5.9
+      "CVE-2019-8457": {
+        "id": "CVE-2019-8457",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2019-8457",
+        "description": "SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when handling invalid rtree tables.",
+        "published": "2019-05-30T16:29:00",
+        "modified": "2021-07-31T08:15:00",
+        "cvss": {
+          "score": 7.5,
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
         },
-        "references": [],
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2019-8457",
         "cvelist": [
-          "CVE-2018-10897"
+          "CVE-2019-8457"
         ],
+        "lastseen": "2023-02-09T14:56:46",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-32774": {
+        "id": "CVE-2022-32774",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-32774",
+        "description": "A use-after-free vulnerability exists in the JavaScript engine of Foxit Software's PDF Reader, version 12.0.1.12430. By prematurely deleting objects associated with pages, a specially-crafted PDF document can trigger the reuse of previously freed memory, which can lead to arbitrary code execution. An attacker needs to trick the user into opening the malicious file to trigger this vulnerability. Exploitation is also possible if a user visits a specially-crafted, malicious site if the browser plugin extension is enabled.",
+        "published": "2022-11-21T16:15:00",
+        "modified": "2022-11-22T19:01:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-32774",
+        "cvelist": [
+          "CVE-2022-32774"
+        ],
+        "lastseen": "2023-02-09T14:29:07",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-35737": {
+        "id": "CVE-2022-35737",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-35737",
+        "description": "SQLite 1.0.12 through 3.39.x before 3.39.2 sometimes allows an array-bounds overflow if billions of bytes are used in a string argument to a C API.",
+        "published": "2022-08-03T06:15:00",
+        "modified": "2022-11-16T20:01:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-35737",
+        "cvelist": [
+          "CVE-2022-35737"
+        ],
+        "lastseen": "2023-02-09T14:33:49",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-37332": {
+        "id": "CVE-2022-37332",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-37332",
+        "description": "A use-after-free vulnerability exists in the JavaScript engine of Foxit Software's PDF Reader, version 12.0.1.12430. A specially-crafted PDF document can trigger the reuse of previously freed memory via misusing media player API, which can lead to arbitrary code execution. An attacker needs to trick the user into opening the malicious file to trigger this vulnerability. Exploitation is also possible if a user visits a specially-crafted, malicious site if the browser plugin extension is enabled.",
+        "published": "2022-11-21T16:15:00",
+        "modified": "2022-11-22T19:00:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-37332",
+        "cvelist": [
+          "CVE-2022-37332"
+        ],
+        "lastseen": "2023-02-09T14:37:00",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-38097": {
+        "id": "CVE-2022-38097",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-38097",
+        "description": "A use-after-free vulnerability exists in the JavaScript engine of Foxit Software's PDF Reader, version 12.0.1.12430. By prematurely destroying annotation objects, a specially-crafted PDF document can trigger the reuse of previously freed memory, which can lead to arbitrary code execution. An attacker needs to trick the user into opening the malicious file to trigger this vulnerability. Exploitation is also possible if a user visits a specially-crafted, malicious site if the browser plugin extension is enabled.",
+        "published": "2022-11-21T16:15:00",
+        "modified": "2022-11-22T19:00:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-38097",
+        "cvelist": [
+          "CVE-2022-38097"
+        ],
+        "lastseen": "2023-02-09T14:38:00",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-40129": {
+        "id": "CVE-2022-40129",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-40129",
+        "description": "A use-after-free vulnerability exists in the JavaScript engine of Foxit Software's PDF Reader, version 12.0.1.12430. A specially-crafted PDF document can trigger the reuse of previously freed memory via misusing Optional Content Group API, which can lead to arbitrary code execution. An attacker needs to trick the user into opening the malicious file to trigger this vulnerability. Exploitation is also possible if a user visits a specially-crafted, malicious site if the browser plugin extension is enabled.",
+        "published": "2022-11-21T16:15:00",
+        "modified": "2022-11-22T01:07:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-40129",
+        "cvelist": [
+          "CVE-2022-40129"
+        ],
+        "lastseen": "2023-02-09T14:41:54",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "CVE-2022-42919": {
+        "id": "CVE-2022-42919",
+        "type": "cve",
+        "bulletinFamily": "NVD",
+        "title": "CVE-2022-42919",
+        "description": "Python 3.9.x before 3.9.16 and 3.10.x before 3.10.9 on Linux allows local privilege escalation in a non-default configuration. The Python multiprocessing library, when used with the forkserver start method on Linux, allows pickles to be deserialized from any user in the same machine local network namespace, which in many system configurations means any user on the same machine. Pickles can execute arbitrary code. Thus, this allows for local user privilege escalation to the user that any forkserver process is running as. Setting multiprocessing.util.abstract_sockets_supported to False is a workaround. The forkserver start method for multiprocessing is not the default start method. This issue is Linux specific because only Linux supports abstract namespace sockets. CPython before 3.9 does not make use of Linux abstract namespace sockets by default. Support for users manually specifying an abstract namespace socket was added as a bugfix in 3.7.8 and 3.8.3, but users would need to make specific uncommon API calls in order to do that in CPython before 3.9.",
+        "published": "2022-11-07T00:15:00",
+        "modified": "2023-02-05T21:56:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2022-42919",
+        "cvelist": [
+          "CVE-2022-42919"
+        ],
+        "lastseen": "2023-02-08T15:38:53",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "DEBIAN:DLA-2955-1:40374": {
+        "id": "DEBIAN:DLA-2955-1:40374",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DLA 2955-1] bind9 security update",
+        "description": "-------------------------------------------------------------------------\nDebian LTS Advisory DLA-2955-1                debian-lts@lists.debian.org\nhttps://www.debian.org/lts/security/                      Markus Koschany\nMarch 18, 2022                                https://wiki.debian.org/LTS\n-------------------------------------------------------------------------\n\nPackage        : bind9\nVersion        : 1:9.10.3.dfsg.P4-12.3+deb9u11\nCVE ID         : CVE-2021-25220\n\nIt was found that bind9, an internet domain name server, was vulnerable to\ncache poisoning. When using forwarders, bogus NS records supplied by, or via,\nthose forwarders may be cached and used by named if it needs to recurse for any\nreason, causing it to obtain and pass on potentially incorrect answers.\n\nFor Debian 9 stretch, this problem has been fixed in version\n1:9.10.3.dfsg.P4-12.3+deb9u11.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to\nits security tracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian LTS security advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://wiki.debian.org/LTS\nAttachment:\nsignature.asc\nDescription: This is a digitally signed message part\n",
+        "published": "2022-03-18T23:04:32",
+        "modified": "2022-03-18T23:04:32",
+        "cvss": {
+          "score": 4.0,
+          "vector": "AV:N/AC:L/Au:S/C:N/I:P/A:N"
+        },
+        "href": "https://lists.debian.org/debian-lts-announce/2022/03/msg00026.html",
+        "cvelist": [
+          "CVE-2021-25220"
+        ],
+        "lastseen": "2022-11-29T20:28:55",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "DEBIAN:DLA-2955-2:CDB18": {
+        "id": "DEBIAN:DLA-2955-2:CDB18",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DLA 2955-2] bind9 regression update",
+        "description": "-------------------------------------------------------------------------\nDebian LTS Advisory DLA-2955-2                debian-lts@lists.debian.org\nhttps://www.debian.org/lts/security/                      Markus Koschany\nMarch 19, 2022                                https://wiki.debian.org/LTS\n-------------------------------------------------------------------------\n\nPackage        : bind9\nVersion        : 1:9.10.3.dfsg.P4-12.3+deb9u12\nCVE ID         : CVE-2021-25220\nDebian Bug     : 1007945\n\nThe security update announced as DLA 2955-1 caused a regression in named due to\nan incomplete fix for CVE-2021-25220 when the Forwarders option was configured.\nUpdated bind9 packages are now available to correct this issue.\n\nFor Debian 9 stretch, this problem has been fixed in version\n1:9.10.3.dfsg.P4-12.3+deb9u12.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to\nits security tracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian LTS security advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://wiki.debian.org/LTS\nAttachment:\nsignature.asc\nDescription: This is a digitally signed message part\n",
+        "published": "2022-03-19T16:30:57",
+        "modified": "2022-03-19T16:30:57",
+        "cvss": {
+          "score": 4.0,
+          "vector": "AV:N/AC:L/Au:S/C:N/I:P/A:N"
+        },
+        "href": "https://lists.debian.org/debian-lts-announce/2022/03/msg00027.html",
+        "cvelist": [
+          "CVE-2021-25220"
+        ],
+        "lastseen": "2022-11-29T20:28:53",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "DEBIAN:DLA-3138-1:2F5A9": {
+        "id": "DEBIAN:DLA-3138-1:2F5A9",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DLA 3138-1] bind9 security update",
+        "description": "- -------------------------------------------------------------------------\nDebian LTS Advisory DLA-3138-1                debian-lts@lists.debian.org\nhttps://www.debian.org/lts/security/               Emilio Pozuelo Monfort\nOctober 05, 2022                              https://wiki.debian.org/LTS\n- -------------------------------------------------------------------------\n\nPackage        : bind9\nVersion        : 1:9.11.5.P4+dfsg-5.1+deb10u8\nCVE ID         : CVE-2022-2795 CVE-2022-38177 CVE-2022-38178\n\nSeveral vulnerabilities were discovered in BIND, a DNS server\nimplementation.\n\nCVE-2022-2795\n\n    Yehuda Afek, Anat Bremler-Barr and Shani Stajnrod discovered that a\n    flaw in the resolver code can cause named to spend excessive amounts\n    of time on processing large delegations, significantly degrade\n    resolver performance and result in denial of service.\n\nCVE-2022-38177\n\n    It was discovered that the DNSSEC verification code for the ECDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nCVE-2022-38178\n\n    It was discovered that the DNSSEC verification code for the EdDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nFor Debian 10 buster, these problems have been fixed in version\n1:9.11.5.P4+dfsg-5.1+deb10u8.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to\nits security tracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian LTS security advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://wiki.debian.org/LTS",
+        "published": "2022-10-05T15:21:42",
+        "modified": "2022-10-05T15:21:42",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://lists.debian.org/debian-lts-announce/2022/10/msg00007.html",
+        "cvelist": [
+          "CVE-2022-2795",
+          "CVE-2022-38177",
+          "CVE-2022-38178"
+        ],
+        "lastseen": "2023-02-25T17:34:51",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "DEBIAN:DSA-5105-1:A867B": {
+        "id": "DEBIAN:DSA-5105-1:A867B",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DSA 5105-1] bind9 security update",
+        "description": "- -------------------------------------------------------------------------\nDebian Security Advisory DSA-5105-1                   security@debian.org\nhttps://www.debian.org/security/                       Moritz Muehlenhoff\nMarch 18, 2022                        https://www.debian.org/security/faq\n- -------------------------------------------------------------------------\n\nPackage        : bind9\nCVE ID         : CVE-2021-25220 CVE-2022-0396\n\nTwo vulnerabilities were found in the BIND DNS server, which could\nresult in denial of service or cache poisoning.\n\nFor the oldstable distribution (buster), this problem has been fixed\nin version 1:9.11.5.P4+dfsg-5.1+deb10u7.\n\nFor the stable distribution (bullseye), this problem has been fixed in\nversion 1:9.16.27-1~deb11u1.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to\nits security tracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian Security Advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://www.debian.org/security/\n\nMailing list: debian-security-announce@lists.debian.org",
+        "published": "2022-03-18T19:03:00",
+        "modified": "2022-03-18T19:03:00",
+        "cvss": {
+          "score": 4.3,
+          "vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        "href": "https://lists.debian.org/debian-security-announce/2022/msg00073.html",
+        "cvelist": [
+          "CVE-2021-25220",
+          "CVE-2022-0396"
+        ],
+        "lastseen": "2023-02-24T11:08:54",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "DEBIAN:DSA-5235-1:A2B24": {
+        "id": "DEBIAN:DSA-5235-1:A2B24",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DSA 5235-1] bind9 security update",
+        "description": "- -------------------------------------------------------------------------\nDebian Security Advisory DSA-5235-1                   security@debian.org\nhttps://www.debian.org/security/                     Salvatore Bonaccorso\nSeptember 22, 2022                    https://www.debian.org/security/faq\n- -------------------------------------------------------------------------\n\nPackage        : bind9\nCVE ID         : CVE-2022-2795 CVE-2022-3080 CVE-2022-38177 CVE-2022-38178\n\nSeveral vulnerabilities were discovered in BIND, a DNS server\nimplementation.\n\nCVE-2022-2795\n\n    Yehuda Afek, Anat Bremler-Barr and Shani Stajnrod discovered that a\n    flaw in the resolver code can cause named to spend excessive amounts\n    of time on processing large delegations, significantly degrade\n    resolver performance and result in denial of service.\n\nCVE-2022-3080\n\n    Maksym Odinintsev discovered that the resolver can crash when stale\n    cache and stale answers are enabled with a zero\n    stale-answer-timeout. A remote attacker can take advantage of this\n    flaw to cause a denial of service (daemon crash) via specially\n    crafted queries to the resolver.\n\nCVE-2022-38177\n\n    It was discovered that the DNSSEC verification code for the ECDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nCVE-2022-38178\n\n    It was discovered that the DNSSEC verification code for the EdDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nFor the stable distribution (bullseye), these problems have been fixed in\nversion 1:9.16.33-1~deb11u1.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to its security\ntracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian Security Advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://www.debian.org/security/\n\nMailing list: debian-security-announce@lists.debian.org",
+        "published": "2022-09-22T13:30:54",
+        "modified": "2022-09-22T13:30:54",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://lists.debian.org/debian-security-announce/2022/msg00204.html",
+        "cvelist": [
+          "CVE-2022-2795",
+          "CVE-2022-3080",
+          "CVE-2022-38177",
+          "CVE-2022-38178"
+        ],
+        "lastseen": "2023-02-24T14:11:30",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "GCSA-7983606563710745028": {
+        "id": "GCSA-7983606563710745028",
+        "type": "chrome",
+        "bulletinFamily": "software",
+        "title": "Stable Channel Update for Desktop",
+        "description": "The Chrome team is delighted to announce the promotion of Chrome 110 to the stable channel for Windows, Mac and Linux. This will roll out over the coming days/weeks.\n\n\nChrome 110.0.5481.77/.78 for Windows, 110.0.5481.77 for Mac and Linux contains a number of fixes and improvements -- a list of changes is available in the[ log](<https://chromium.googlesource.com/chromium/src/+log/109.0.5414.121..110.0.5481.78?pretty=fuller&n=10000>). Watch out for upcoming[ ](<https://chrome.blogspot.com/>)[Chrome](<https://chrome.blogspot.com/>) and[ Chromium](<https://blog.chromium.org/>) blog posts about new features and big efforts delivered in 110.\n\nThe Extended Stable channel has been updated to 110.0.5481.78 for Windows and 110.0.5481.77 for Mac which will roll out over the coming days/weeks. \n\nSecurity Fixes and Rewards\n\nNote: Access to bug details and links may be kept restricted until a majority of users are updated with a fix. We will also retain restrictions if the bug exists in a third party library that other projects similarly depend on, but haven&#x27;t yet fixed.\n\n\n\n\nThis update includes [15](<https://bugs.chromium.org/p/chromium/issues/list?can=1&q=type%3Abug-security+os%3DAndroid%2Cios%2Clinux%2Cmac%2Cwindows%2Call%2Cchrome+label%3ARelease-0-M110>) security fixes. Below, we highlight fixes that were contributed by external researchers. Please see the [Chrome Security Page](<https://sites.google.com/a/chromium.org/dev/Home/chromium-security>) for more information.\n\n\n\n\n[$7000][[1402270](<https://crbug.com/1402270>)] High CVE-2023-0696: Type Confusion in V8. Reported by Haein Lee at KAIST Hacking Lab on 2022-12-18\n\n[$4000][[1341541](<https://crbug.com/1341541>)] High CVE-2023-0697: Inappropriate implementation in Full screen mode. Reported by Ahmed ElMasry on 2022-07-03\n\n[$2000][[1403573](<https://crbug.com/1403573>)] High CVE-2023-0698: Out of bounds read in WebRTC. Reported by Cassidy Kim(@cassidy6564) on 2022-12-25\n\n[$3000][[1371859](<https://crbug.com/1371859>)] Medium CVE-2023-0699: Use after free in GPU. Reported by 7o8v and Cassidy Kim(@cassidy6564) on 2022-10-06\n\n[$3000][[1393732](<https://crbug.com/1393732>)] Medium CVE-2023-0700: Inappropriate implementation in Download. Reported by Axel Chong on 2022-11-26\n\n[$2000][[1405123](<https://crbug.com/1405123>)] Medium CVE-2023-0701: Heap buffer overflow in WebUI. Reported by Sumin Hwang of SSD Labs on 2023-01-05\n\n[$1500][[1316301](<https://crbug.com/1316301>)] Medium CVE-2023-0702: Type Confusion in Data Transfer. Reported by Sri on 2022-04-14\n\n[$1000][[1405574](<https://crbug.com/1405574>)] Medium CVE-2023-0703: Type Confusion in DevTools. Reported by raven at KunLun lab on 2023-01-07\n\n[$2000][[1385982](<https://crbug.com/1385982>)] Low CVE-2023-0704: Insufficient policy enforcement in DevTools. Reported by Rhys Elsmore and Zac Sims of the Canva security team on 2022-11-18\n\n[$1000][[1238642](<https://crbug.com/1238642>)] Low CVE-2023-0705: Integer overflow in Core. Reported by SorryMybad (@S0rryMybad) of Kunlun Lab on 2021-08-11\n\n\n\n\nWe would also like to thank all security researchers that worked with us during the development cycle to prevent security bugs from ever reaching the stable channel.  \n\nAs usual, our ongoing internal security work was responsible for a wide range of fixes:\n\n  * [[1413506](<https://crbug.com/1413506>)] Various fixes from internal audits, fuzzing and other initiatives\n\n\n\n\nMany of our security bugs are detected using [AddressSanitizer](<https://code.google.com/p/address-sanitizer/wiki/AddressSanitizer>), [MemorySanitizer](<https://code.google.com/p/memory-sanitizer/wiki/MemorySanitizer>), [UndefinedBehaviorSanitizer](<https://www.chromium.org/developers/testing/undefinedbehaviorsanitizer>), [Control Flow Integrity](<https://sites.google.com/a/chromium.org/dev/developers/testing/control-flow-integrity>), [libFuzzer](<https://sites.google.com/a/chromium.org/dev/developers/testing/libfuzzer>), or [AFL](<https://github.com/google/afl>).\n\n\n\n\nInterested in switching release channels?  Find out how [here](<https://www.chromium.org/getting-involved/dev-channel>). If you find a new issue, please let us know by [filing a bug](<https://crbug.com/>). The [community help forum](<https://support.google.com/chrome/community>) is also a great place to reach out for help or learn about common issues.\n\n\n\n\n\n\nDaniel Yip\n\nGoogle Chrome",
+        "published": "2023-02-07T00:00:00",
+        "modified": "2023-02-07T00:00:00",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://chromereleases.googleblog.com/2023/02/stable-channel-update-for-desktop.html",
+        "cvelist": [
+          "CVE-2023-0696",
+          "CVE-2023-0697",
+          "CVE-2023-0698",
+          "CVE-2023-0699",
+          "CVE-2023-0700",
+          "CVE-2023-0701",
+          "CVE-2023-0702",
+          "CVE-2023-0703",
+          "CVE-2023-0704",
+          "CVE-2023-0705"
+        ],
+        "lastseen": "2023-02-16T02:04:08",
+        "enchantments": {
+          "vulnersScore": "PENDING"
+        }
+      },
+      "OSV:CVE-2021-20227": {
+        "id": "OSV:CVE-2021-20227",
+        "type": "osv",
+        "bulletinFamily": "software",
+        "title": "CVE-2021-20227",
+        "description": "A flaw was found in SQLite's SELECT query functionality (src/select.c). This flaw allows an attacker who is capable of running SQL queries locally on the SQLite database to cause a denial of service or possible code execution by triggering a use-after-free. The highest threat from this vulnerability is to system availability.",
+        "published": "2021-03-23T17:15:00",
+        "modified": "2022-11-17T15:04:58",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
+        },
+        "href": "https://osv.dev/vulnerability/CVE-2021-20227",
+        "cvelist": [
+          "CVE-2021-20227"
+        ],
+        "lastseen": "2022-11-17T15:04:59",
         "enchantments": {
           "vulnersScore": "PENDING"
         }
       }
     },
-    "indexName": "es6_scanner_35ee2944abab0b2c4f6e63916fc96bec0b1642ce_scanresults",
+    "indexName": "es6_scanner_35ee2944abab0b2c42ce_scanresults",
     "totalCount": 3
   }
 }

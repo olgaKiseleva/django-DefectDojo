@@ -3,50 +3,44 @@
   "data": {
     "report": [
       {
-        "vulnID": "RHSA-2018:2285",
-        "title": "(RHSA-2018:2285) Important: yum-utils security update",
-        "family": "redhat",
-        "severity": 5,
-        "severityText": "critical",
-        "agentip": "12.34.56.78",
-        "agentfqdn": "localhost",
-        "cumulativeFix": "sudo yum -y update yum-utils",
-        "scanid": "BO1T5ZYXH9SFTOJ189NE1XJDNEH7IX9W4OWMTZNDAH9AECACJCXPN330NGBBOH8YBI3YYY25QJ11L89LTMAHHBMNLNRQQO001F2DWJFIDDXZ7D9UTCLVBUZPWCXEDZY"
+        "agentip": "127.0.0.1",
+        "agentfqdn": "home",
+        "osname": "debian",
+        "osversion": "10",
+        "cumulativeFix": "sudo apt-get --assume-yes install --only-upgrade bind9-host",
+        "vulnerabilities": [
+          "DEBIAN:DSA-5235-1:A2B24"
+        ],
+        "published": "2023-02-23T10:55:41"
       }
     ],
     "vulns": {
-      "RHSA-2018:2285": {
-        "id": "RHSA-2018:2285",
-        "type": "redhat",
-        "description": "The yum-utils packages provide a collection of utilities and examples for the yum package manager to make yum easier and more powerful to use.\n\nSecurity Fix(es):\n\n* yum-utils: reposync: improper path validation may lead to directory traversal (CVE-2018-10897)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nRed Hat would like to thank Jay Grizzard (Clover Network) and Aaron Levy (Clover Network) for reporting this issue.",
-        "cvss3": {
-          "cvssV3": {
-            "attackComplexity": "HIGH",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 8.1,
-            "baseSeverity": "HIGH",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "privilegesRequired": "NONE",
-            "scope": "UNCHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "version": "3.1"
-          },
-          "exploitabilityScore": 2.2,
-          "impactScore": 5.9
+      "DEBIAN:DSA-5235-1:A2B24": {
+        "id": "DEBIAN:DSA-5235-1:A2B24",
+        "type": "debian",
+        "bulletinFamily": "unix",
+        "title": "[SECURITY] [DSA 5235-1] bind9 security update",
+        "description": "- -------------------------------------------------------------------------\nDebian Security Advisory DSA-5235-1                   security@debian.org\nhttps://www.debian.org/security/                     Salvatore Bonaccorso\nSeptember 22, 2022                    https://www.debian.org/security/faq\n- -------------------------------------------------------------------------\n\nPackage        : bind9\nCVE ID         : CVE-2022-2795 CVE-2022-3080 CVE-2022-38177 CVE-2022-38178\n\nSeveral vulnerabilities were discovered in BIND, a DNS server\nimplementation.\n\nCVE-2022-2795\n\n    Yehuda Afek, Anat Bremler-Barr and Shani Stajnrod discovered that a\n    flaw in the resolver code can cause named to spend excessive amounts\n    of time on processing large delegations, significantly degrade\n    resolver performance and result in denial of service.\n\nCVE-2022-3080\n\n    Maksym Odinintsev discovered that the resolver can crash when stale\n    cache and stale answers are enabled with a zero\n    stale-answer-timeout. A remote attacker can take advantage of this\n    flaw to cause a denial of service (daemon crash) via specially\n    crafted queries to the resolver.\n\nCVE-2022-38177\n\n    It was discovered that the DNSSEC verification code for the ECDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nCVE-2022-38178\n\n    It was discovered that the DNSSEC verification code for the EdDSA\n    algorithm is susceptible to a memory leak flaw. A remote attacker\n    can take advantage of this flaw to cause BIND to consume resources,\n    resulting in a denial of service.\n\nFor the stable distribution (bullseye), these problems have been fixed in\nversion 1:9.16.33-1~deb11u1.\n\nWe recommend that you upgrade your bind9 packages.\n\nFor the detailed security status of bind9 please refer to its security\ntracker page at:\nhttps://security-tracker.debian.org/tracker/bind9\n\nFurther information about Debian Security Advisories, how to apply\nthese updates to your system and frequently asked questions can be\nfound at: https://www.debian.org/security/\n\nMailing list: debian-security-announce@lists.debian.org",
+        "published": "2022-09-22T13:30:54",
+        "modified": "2022-09-22T13:30:54",
+        "cvss": {
+          "score": 0.0,
+          "vector": "NONE"
         },
-        "references": [],
+        "href": "https://lists.debian.org/debian-security-announce/2022/msg00204.html",
         "cvelist": [
-          "CVE-2018-10897"
+          "CVE-2022-2795",
+          "CVE-2022-3080",
+          "CVE-2022-38177",
+          "CVE-2022-38178"
         ],
+        "lastseen": "2023-02-24T14:11:30",
         "enchantments": {
           "vulnersScore": "PENDING"
         }
       }
     },
-    "indexName": "es6_scanner_35ee2944abab0b2c4f6e63916fc96bec0b1642ce_scanresults",
+    "indexName": "es6_scanner_35ee2944abab_scanresults",
     "totalCount": 1
   }
 }

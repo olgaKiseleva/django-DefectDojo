@@ -8,6 +8,7 @@ class VulnersAPI:
 
     vulners_api_url = None
     api_key = None
+    limit = 10000
 
     def __init__(self, tool_config):
         if tool_config.authentication_type == "API":
@@ -15,26 +16,24 @@ class VulnersAPI:
             if tool_config.url:
                 self.vulners_api_url = tool_config.url
         else:
-            raise Exception(
-                "Vulners.com Authentication type {} not supported".format(
-                    tool_config.authentication_type
-                )
-            )
+            raise Exception('Vulners.com Authentication type {} not supported'.format(tool_config.authentication_type))
 
     def get_client(self):
         return vulners.VulnersApi(
             api_key=self.api_key,
             server_url=self.vulners_api_url,
-            persistent=False,
+            persistent=False
         )
 
     def get_findings(self):
         client = self.get_client()
-        return client.vulnslist_report(limit=10000)
+        return client.hostvulns_report(limit=self.limit)
 
     def get_vulns_description(self, vulns_id):
         client = self.get_client()
-        return client.get_multiple_bulletins(
-            id=vulns_id,
-            fields=["description", "cwe", "references", "cvelist", "cvss3"],
-        )
+        bulletins = {}
+        # split list into 10000-sized chunks
+        for chunk in range(0, len(vulns_id), self.limit):
+            bulletins.update(client.get_multiple_bulletins(id=vulns_id[chunk:chunk + self.limit], 
+                fields=['description', 'cwe', 'references', 'cvelist', 'cvss3']))
+        return bulletins
