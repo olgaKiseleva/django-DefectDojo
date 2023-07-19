@@ -12,8 +12,8 @@
         "published": "2023-02-16T18:16:12"
       },
       {
-        "agentip": "188.32.116.79",
-        "agentfqdn": "broadband-188-32-116-79.ip.moscow.rt.ru",
+        "agentip": "127.0.0.4",
+        "agentfqdn": "home",
         "osname": "debian",
         "osversion": "10",
         "cumulativeFix": "sudo apt-get --assume-yes install --only-upgrade bind9-host",
@@ -67,7 +67,7 @@
         "published": "2023-02-08T13:58:13"
       },
       {
-        "agentip": "188.32.116.79",
+        "agentip": "127.0.0.4",
         "agentfqdn": "unknown",
         "osname": "Windows",
         "osversion": "10.0.19045",
@@ -429,7 +429,7 @@
         }
       }
     },
-    "indexName": "es6_scanner_35ee2944abab0b2c4f6e63916fc96bec0b1642ce_scanresults",
+    "indexName": "es6_scanner_35ee2944abab0b2c42ce_scanresults",
     "totalCount": 3
   }
 }
