@@ -80,13 +80,11 @@ def get_rules(run):
     return rules
 
 
-def get_rule_tags(rule):
-    if 'properties' not in rule:
+# Rules and results have de sames scheme for tags
+def get_properties_tags(value):
+    if not value:
         return []
-    if 'tags' not in rule['properties']:
-        return []
-    else:
-        return rule['properties']['tags']
+    return value.get('properties', {}).get('tags', [])
 
 
 def search_cwe(value, cwes):
@@ -104,7 +102,7 @@ def get_rule_cwes(rule):
             search_cwe(value, cwes)
         return cwes
 
-    for tag in get_rule_tags(rule):
+    for tag in get_properties_tags(rule):
         search_cwe(tag, cwes)
     return cwes
 
@@ -193,6 +191,7 @@ def get_snippet(result):
 
 
 def get_codeFlowsDescription(codeFlows):
+    description = ''
     for codeFlow in codeFlows:
         if 'threadFlows' not in codeFlow:
             continue
@@ -204,7 +203,9 @@ def get_codeFlowsDescription(codeFlows):
             for location in threadFlow['locations']:
                 physicalLocation = location['location']['physicalLocation']
                 region = physicalLocation['region']
-                description += '\t' + physicalLocation['artifactLocation']['uri'] + ':' + str(region['startLine'])
+                description += '\t' + physicalLocation['artifactLocation'][
+                    'uri'] if 'byteOffset' in region else '\t' + physicalLocation['artifactLocation']['uri'] + ':' + str(
+                    region['startLine'])
                 if 'startColumn' in region:
                     description += ':' + str(region['startColumn'])
                 if 'snippet' in region:
@@ -235,7 +236,7 @@ def get_description(result, rule):
             if fullDescription != message and fullDescription != shortDescription:
                 description += '**Rule full description:** {}\n'.format(fullDescription)
 
-    if 'codeFlows' in result:
+    if len(result.get('codeFlows', [])) > 0:
         description += get_codeFlowsDescription(result['codeFlows'])
 
     if description.endswith('\n'):
@@ -296,7 +297,6 @@ def get_severity(result, rule):
 
 
 def get_item(result, rules, artifacts, run_date):
-
     # see https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html / 3.27.9
     kind = result.get('kind', 'fail')
     if kind != 'fail':
@@ -315,9 +315,15 @@ def get_item(result, rules, artifacts, run_date):
         location = result['locations'][0]
         if 'physicalLocation' in location:
             file_path = location['physicalLocation']['artifactLocation']['uri']
+
             # 'region' attribute is optionnal
             if 'region' in location['physicalLocation']:
-                line = location['physicalLocation']['region']['startLine']
+                # https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html / 3.30.1
+                # need to check whether it is byteOffset
+                if 'byteOffset' in location['physicalLocation']['region']:
+                    pass
+                else:
+                    line = location['physicalLocation']['region']['startLine']
 
     # test rule link
     rule = rules.get(result.get('ruleId'))
@@ -364,6 +370,10 @@ def get_item(result, rules, artifacts, run_date):
 
     if run_date:
         finding.date = run_date
+
+    # manage tags provided in the report and rule and remove duplicated
+    tags = list(set(get_properties_tags(rule) + get_properties_tags(result)))
+    finding.tags = tags
 
     # manage fingerprints
     # fingerprinting in SARIF is more complete than in current implementation

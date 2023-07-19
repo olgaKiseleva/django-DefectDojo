@@ -5,6 +5,9 @@ import io
 from cvss import parser as cvss_parser
 from dateutil import parser
 from datetime import datetime
+
+from django.utils import timezone
+
 from dojo.models import Finding
 
 
@@ -65,17 +68,10 @@ class VeracodeScaParser(object):
                 cvss_score = vulnerability.get("cvss3_score")
             severity = self.__cvss_to_severity(cvss_score)
 
-            description = 'This library has known vulnerabilities.\n'
-            description += \
-                "**CVE:** {0} ({1})\n" \
-                "CVS Score: {2} ({3})\n" \
-                "Project name: {4}\n" \
-                "Title: \n>{5}" \
+            description = \
+                "Project name: {0}\n" \
+                "Title: \n>{1}" \
                 "\n\n-----\n\n".format(
-                    vuln_id,
-                    date,
-                    cvss_score,
-                    severity,
                     issue.get("project_name"),
                     vulnerability.get('title'))
 
@@ -115,6 +111,7 @@ class VeracodeScaParser(object):
             if (issue.get('Ignored') and issue.get('Ignored').capitalize() == 'True' or
                     status and (status.capitalize() == 'Resolved' or status.capitalize() == 'Fixed')):
                 finding.is_mitigated = True
+                finding.mitigated = timezone.now()
                 finding.active = False
 
             findings.append(finding)
@@ -151,17 +148,10 @@ class VeracodeScaParser(object):
             severity = self.fix_severity(row.get('Severity', None))
             cvss_score = float(row.get('CVSS score', 0))
             date = datetime.strptime(row.get('Issue opened: Scan date'), '%d %b %Y %H:%M%p %Z')
-            description = 'This library has known vulnerabilities.\n'
-            description += \
-                "**CVE:** {0} ({1})\n" \
-                "CVS Score: {2} ({3})\n" \
-                "Project name: {4}\n" \
-                "Title: \n>{5}" \
+            description = \
+                "Project name: {0}\n" \
+                "Title: \n>{1}" \
                 "\n\n-----\n\n".format(
-                    vuln_id,
-                    date,
-                    cvss_score,
-                    severity,
                     row.get('Project'),
                     row.get('Title'))
 
@@ -184,6 +174,7 @@ class VeracodeScaParser(object):
             if (row.get('Ignored') and row.get('Ignored').capitalize() == 'True' or
                     row.get('Status') and row.get('Status').capitalize() == 'Resolved'):
                 finding.is_mitigated = True
+                finding.mitigated = timezone.now()
                 finding.active = False
 
             findings.append(finding)

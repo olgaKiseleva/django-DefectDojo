@@ -20,9 +20,9 @@ from django.db.models import JSONField
 import pytz
 from django.db.models import Q
 from dojo.models import Dojo_User, Finding_Group, Product_API_Scan_Configuration, Product_Type, Finding, Product, Test_Import, Test_Type, \
-    Endpoint, Development_Environment, Finding_Template, Note_Type, \
+    Endpoint, Development_Environment, Finding_Template, Note_Type, Risk_Acceptance, Cred_Mapping, \
     Engagement_Survey, Question, TextQuestion, ChoiceQuestion, Endpoint_Status, Engagement, \
-    ENGAGEMENT_STATUS_CHOICES, Test, App_Analysis, SEVERITY_CHOICES, Dojo_Group, Vulnerability_Id
+    ENGAGEMENT_STATUS_CHOICES, Test, App_Analysis, SEVERITY_CHOICES, EFFORT_FOR_FIXING_CHOICES, Dojo_Group, Vulnerability_Id
 from dojo.utils import get_system_setting
 from django.contrib.contenttypes.models import ContentType
 import tagulous
@@ -1148,7 +1148,7 @@ class ApiFindingFilter(DojoFilter):
                              help_text='Comma seperated list of exact tags')
     test__tags = CharFieldInFilter(field_name='test__tags__name', lookup_expr='in',
                                    help_text='Comma seperated list of exact tags present on test')
-    test__engagement__tags = CharFieldInFilter(field_name='test__engagement__tags', lookup_expr='in',
+    test__engagement__tags = CharFieldInFilter(field_name='test__engagement__tags__name', lookup_expr='in',
                                                help_text='Comma seperated list of exact tags present on engagement')
     test__engagement__product__tags__name = CharFieldInFilter(field_name='test__engagement__product__tags__name',
                                                               lookup_expr='in',
@@ -1159,7 +1159,7 @@ class ApiFindingFilter(DojoFilter):
                                  help_text='Comma seperated list of exact tags not present on model', exclude='True')
     not_test__tags = CharFieldInFilter(field_name='test__tags__name', lookup_expr='in',
                                        help_text='Comma seperated list of exact tags not present on test', exclude='True')
-    not_test__engagement__tags = CharFieldInFilter(field_name='test__engagement__tags', lookup_expr='in',
+    not_test__engagement__tags = CharFieldInFilter(field_name='test__engagement__tags__name', lookup_expr='in',
                                                    help_text='Comma seperated list of exact tags not present on engagement',
                                                    exclude='True')
     not_test__engagement__product__tags__name = CharFieldInFilter(field_name='test__engagement__product__tags__name',
@@ -1221,6 +1221,7 @@ class FindingFilter(FindingFilterWithTags):
     mitigated = DateRangeFilter(label="Mitigated Date")
 
     planned_remediation_date = DateRangeOmniFilter()
+    planned_remediation_version = CharFilter(lookup_expr='icontains', label=_('Planned remediation version'))
 
     file_path = CharFilter(lookup_expr='icontains')
     param = CharFilter(lookup_expr='icontains')
@@ -1268,6 +1269,8 @@ class FindingFilter(FindingFilterWithTags):
 
     risk_acceptance = ReportRiskAcceptanceFilter(
         label="Risk Accepted")
+
+    effort_for_fixing = MultipleChoiceFilter(choices=EFFORT_FOR_FIXING_CHOICES)
 
     test_import_finding_action__test_import = NumberFilter(widget=HiddenInput())
 
@@ -1813,6 +1816,24 @@ class ApiEndpointFilter(DojoFilter):
         fields = ['id', 'protocol', 'userinfo', 'host', 'port', 'path', 'query', 'fragment', 'product']
 
 
+class ApiRiskAcceptanceFilter(DojoFilter):
+    o = OrderingFilter(
+        # tuple-mapping retains order
+        fields=(
+            ('name', 'name'),
+        ),
+    )
+
+    class Meta:
+        model = Risk_Acceptance
+        fields = [
+            'name', 'accepted_findings', 'recommendation', 'recommendation_details',
+            'decision', 'decision_details', 'accepted_by', 'owner', 'expiration_date',
+            'expiration_date_warned', 'expiration_date_handled', 'reactivate_expired',
+            'restart_sla_expired', 'notes',
+        ]
+
+
 class EngagementTestFilter(DojoFilter):
     lead = ModelChoiceFilter(queryset=Dojo_User.objects.none(), label="Lead")
     version = CharFilter(lookup_expr='icontains', label='Version')
@@ -1877,7 +1898,7 @@ class ApiTestFilter(DojoFilter):
     tag = CharFilter(field_name='tags__name', lookup_expr='icontains', help_text='Tag name contains')
     tags = CharFieldInFilter(field_name='tags__name', lookup_expr='in',
                              help_text='Comma seperated list of exact tags')
-    engagement__tags = CharFieldInFilter(field_name='engagement__tags', lookup_expr='in',
+    engagement__tags = CharFieldInFilter(field_name='engagement__tags__name', lookup_expr='in',
                                                help_text='Comma seperated list of exact tags present on engagement')
     engagement__product__tags__name = CharFieldInFilter(field_name='engagement__product__tags__name',
                                                               lookup_expr='in',
@@ -1886,7 +1907,7 @@ class ApiTestFilter(DojoFilter):
     not_tag = CharFilter(field_name='tags__name', lookup_expr='icontains', help_text='Not Tag name contains', exclude='True')
     not_tags = CharFieldInFilter(field_name='tags__name', lookup_expr='in',
                                  help_text='Comma seperated list of exact tags not present on model', exclude='True')
-    not_engagement__tags = CharFieldInFilter(field_name='engagement__tags', lookup_expr='in',
+    not_engagement__tags = CharFieldInFilter(field_name='engagement__tags__name', lookup_expr='in',
                                                    help_text='Comma seperated list of exact tags not present on engagement',
                                                    exclude='True')
     not_engagement__product__tags__name = CharFieldInFilter(field_name='engagement__product__tags__name',
@@ -1938,6 +1959,12 @@ class ApiAppAnalysisFilter(DojoFilter):
     class Meta:
         model = App_Analysis
         fields = ['product', 'name', 'user', 'version']
+
+
+class ApiCredentialsFilter(DojoFilter):
+    class Meta:
+        model = Cred_Mapping
+        fields = '__all__'
 
 
 class EndpointReportFilter(DojoFilter):

@@ -103,9 +103,8 @@ def api_v2_key(request):
                    'form': form,
                    })
 
+
 # #  user specific
-
-
 @dojo_ratelimit(key='post:username')
 @dojo_ratelimit(key='post:password')
 def login_view(request):
@@ -116,7 +115,6 @@ def login_view(request):
         settings.GITLAB_OAUTH2_ENABLED,
         settings.AUTH0_OAUTH2_ENABLED,
         settings.KEYCLOAK_OAUTH2_ENABLED,
-        settings.GITHUB_OAUTH2_ENABLED,
         settings.GITHUB_ENTERPRISE_OAUTH2_ENABLED,
         settings.SAML2_ENABLED
     ]) == 1 and not ('force_login_form' in request.GET):
@@ -132,8 +130,6 @@ def login_view(request):
             social_auth = 'keycloak'
         elif settings.AUTH0_OAUTH2_ENABLED:
             social_auth = 'auth0'
-        elif settings.GITHUB_OAUTH2_ENABLED:
-            social_auth = 'github'
         elif settings.GITHUB_ENTERPRISE_OAUTH2_ENABLED:
             social_auth = 'github-enterprise'
         else:
